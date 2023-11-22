@@ -1,0 +1,2 @@
+Disallow: index.php
+Disallow: /index.php?*
