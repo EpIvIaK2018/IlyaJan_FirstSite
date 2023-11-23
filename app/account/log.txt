@@ -887,3 +887,247 @@ Array
 (
 )
  то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+    [red] => 100
+)
+ то, что пришло из JS.
+Array
+(
+)
+
+Array
+(
+    [0] => 2
+    [1] => red
+    [2] => 100
+)
+
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+    [green] => 100
+    [limon] => 100
+)
+ то, что пришло из JS.
+Array
+(
+    [0] => Array
+        (
+            [cart_id] => 1
+            [0] => 1
+            [id_Customer] => 2
+            [1] => 2
+            [product] => green
+            [2] => green
+            [count] => 50
+            [3] => 50
+        )
+
+)
+
+Array
+(
+)
+
+Array
+(
+    [0] => 2
+    [1] => limon
+    [2] => 100
+)
+
+Array
+(
+)
+ то, что пришло из JS.
+Array
+(
+    [last] => 100
+)
+ то, что пришло из JS.
+Array
+(
+)
+
+Array
+(
+    [0] => 2
+    [1] => last
+    [2] => 100
+)
+
+Array
+(
+    [green] => 100
+)
+ то, что пришло из JS.
+Array
+(
+    [0] => Array
+        (
+            [cart_id] => 1
+            [0] => 1
+            [id_Customer] => 2
+            [1] => 2
+            [product] => green
+            [2] => green
+            [count] => 150
+            [3] => 150
+        )
+
+)
+
+Array
+(
+    [last] => 100
+)
+ то, что пришло из JS.
+Array
+(
+    [0] => Array
+        (
+            [cart_id] => 5
+            [0] => 5
+            [id_Customer] => 2
+            [1] => 2
+            [product] => last
+            [2] => last
+            [count] => 200
+            [3] => 200
+        )
+
+)
+
+Array
+(
+    [green] => 100
+)
+ то, что пришло из JS.
+Array
+(
+    [0] => Array
+        (
+            [cart_id] => 1
+            [0] => 1
+            [id_Customer] => 2
+            [1] => 2
+            [product] => green
+            [2] => green
+            [count] => 250
+            [3] => 250
+        )
+
+)
+
+Array
+(
+    [green] => 100
+    [limon] => 100
+)
+ то, что пришло из JS.
+Array
+(
+)
+
+Array
+(
+    [0] => 2
+    [1] => green
+    [2] => 100
+)
+
+Array
+(
+)
+
+Array
+(
+    [0] => 2
+    [1] => limon
+    [2] => 100
+)
+
+Array
+(
+    [green] => 100
+)
+ то, что пришло из JS.
+Array
+(
+)
+
+Array
+(
+    [0] => 2
+    [1] => green
+    [2] => 100
+)
+
