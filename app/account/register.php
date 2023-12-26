@@ -34,25 +34,26 @@ if(!empty($_SESSION['login'])){
             return true;
         }
     </script>
+    <style>
+        .formWithValidation{
+            position: relative;;
+            display: inline-grid;
+            text-align: left;
+            color: white;
+            width: 80%;
+            left: 0%;
+            font-size: 18pt;
+            height: auto;
+        }
+
+        input[type=text]{
+            font-size: 18pt;
+        }
+    </style>
 </head>
 <body>
 <div class="reg">
-    <h1 style="font-family: Futura, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 32px;
-    text-transform: none;
-    line-height: 1.5;
-    color: #333333;
-    display: block;
-    letter-spacing: 2px;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin: 0 auto 15px;
-    clear: both;
-    font-weight: 700;
-    padding-top: 4px;">Create Account</h1>
+    <h1 style="color: cornflowerblue; margin-bottom: 3vh">Create Account</h1>
     <form method="post" action="confirm.php" name="validForm" class='formWithValidation' onsubmit="return validate()">
         <div>
             <label style="font-family: Calibri; font-size: 25px">Логин:<input type="text" name="loginforReg" required></label>

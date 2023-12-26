@@ -4,6 +4,7 @@
   },
   "require": {
     "ext-curl": "*",
-    "ext-bcmath": "*"
+    "ext-bcmath": "*",
+    "ext-simplexml": "*"
   }
 }

@@ -14,7 +14,6 @@ require 'header.php';
             </div>
         </div>
 
-
         <div class="pirista">
             <li><a href="google.com"><span class="textIntoHead">piristää</span></a></li>
             <li><a href="google.com"><span class="textIntoHead">eväste</span></a></li>
@@ -23,9 +22,11 @@ require 'header.php';
 
 
         <div style="position: relative; right: 2vw; bottom: -0.2vh">
-            <a href="../app/order/payment.php?step=1">
-                <img src="../resources/symka.png" alt="HTML tutorial" style="width:4vw;height: 4vw;">
-            </a>
+            <form style="position: relative; top: 2vh;" id="myform" action="../app/order/payment.php" id="my_form" method="POST">
+                <a style='text-decoration: none; color: white;' href='/IlyaJan/app/order/payment.php?step=1'>
+                    <img src="../resources/symka.png" alt="HTML tutorial" style="width:4vw;height: 4vw;">
+                </a>
+            </form>
             <?php
             if(isset($_SESSION['cart'])){
                 if($_SESSION['cart'] > 0) {

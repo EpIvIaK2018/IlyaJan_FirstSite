@@ -1,11 +1,7 @@
 <?php
 session_start();
 require $_SERVER['DOCUMENT_ROOT'] . "/app/Connect.php";
-ini_set('display_errors', 1);
-ini_set('error_reporting', 1);
-
 if (isset($_POST['data'])){
-    $list =  $_POST['data'];
     $connect = App\Connect::getInstance();
     $id = $_POST['data'][1];
     $value = $_POST['data'][3];

@@ -314,11 +314,16 @@ body > div.global > div.main > div.header2 > div:nth-child(3) > a > img{
 }
 
 .reg{
-    position: absolute;
-    width: 30%;
-    left: 50%;
-    background-color: #333333;
+    position: relative;
+    width: 40vw;
+    left: 35%;
+    background-color: #727a73;
     text-align: center;
+    height: auto;
+    line-height: 3vh;
+    padding-top: 3vh;
+    padding-bottom: 5vh;
+    font-size: xx-large;
 }
 
 span [textIntoHead = "&#709;"]{
@@ -399,4 +404,18 @@ span [textIntoHead = "&#709;"]{
 }
 .gtp a:hover{
     color: aqua;
+}
+
+#log-reg-entery{
+    position: relative;
+    font-size: 4.5vh;
+    font-weight: bolder;
+    background-color: rgba(207, 213, 190, 1);
+    box-shadow: 2px 2px 8px 12px rgba(207, 213, 190, 1);
+    border-radius: 15%;
+    height: 40%;
+    top: 45%;
+    left: 25%;
+    width: 40%;
+    pointer-events: none;
 }

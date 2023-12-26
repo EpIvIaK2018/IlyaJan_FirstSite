@@ -28,6 +28,7 @@ if(!empty($prodId) && $prodId == strval(50) || empty($prodId == strval(100) || e
 }
 
 $temp = $_GET['variant'];
+$title = $_SESSION['title'];
 $count = $_GET['id'];
 /** @var TYPE_NAME $_SESSION */
 
@@ -61,9 +62,12 @@ if(!empty($_SESSION['login'])){
     $stmt->execute();
 
     // Важно таймер чтоб было время коду выше в локл всё сохранить
-    header("Refresh: 1; URL=order.php?variant={$_SESSION['variant']}&title={$_SESSION['title']}");
+    header("Refresh: 1; URL=order.php?variant=$temp&title=$title");
 }else{
-    echo "<script>         
+    echo "<script>       
+        if (typeof localStorage === 'undefined') {
+            alert('localStorage не работает!');
+        }  
         if(localStorage.getItem('$temp')){               
             const data = Number(localStorage.getItem('$temp'));                                                                          
             newData = data + Number('$count');           
@@ -84,7 +88,7 @@ if(!empty($_SESSION['login'])){
         </script>";
 
     // Важно таймер чтоб было время коду выше в локл всё сохранить
-    header("Refresh: 1; URL=order.php");
+    header("Refresh: 1; URL=order.php?variant=$temp&title=$title");
 }
 ?>
 

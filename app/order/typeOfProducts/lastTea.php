@@ -1,6 +1,5 @@
 <?php
-namespace App\order;
-require_once 'product.php';
+use App\order\product;
 class lastTea extends product
 {
     public function __construct($weight)

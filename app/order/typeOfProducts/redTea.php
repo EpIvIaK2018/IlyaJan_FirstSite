@@ -1,6 +1,5 @@
 <?php
-namespace App\order;
-require_once 'product.php';
+use App\order\product;
 class redTea extends product
 {
     public function __construct($weight)
@@ -9,7 +8,4 @@ class redTea extends product
         $this->weight = (double)$weight;
         $this->name = 'Красный чай';
     }
-
-
-
 }
