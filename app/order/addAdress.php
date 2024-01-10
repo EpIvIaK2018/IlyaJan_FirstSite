@@ -18,12 +18,14 @@ $entrance = $_POST['entrance'];
 $floor = $_POST['floor'];
 $tel = $_POST['tel'];
 
-var_dump($_POST['edit']);
+$nextUrl = "";
 if(isset($_POST['edit'])){
     $query = "UPDATE address SET `id_address` = ?, `name` = ?, `lastname` = ?, `country` = ?, `city` = ?, `street` = ?, `house` = ?, `apartment` = ?, `entrance` = ?, `floor` = ?, `tel` = ? WHERE `id_address` = {$id}";
+    $nextUrl = "payment.php?step=3";
 } else{
     $query = "INSERT INTO address (`id_address`, `name`, `lastname`, `country`, `city`, `street`, `house`, `apartment`, `entrance`, `floor`, `tel`) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $nextUrl = "payment.php?step=4";
 }
 try{
     $connect = App\Connect::getInstance();
@@ -40,6 +42,7 @@ try{
     $stmt->bindValue(10, $floor, PDO::PARAM_INT);
     $stmt->bindValue(11, $tel);
     $stmt->execute();
+    header("Location: " . $nextUrl);
 }catch (PDOException $err){
     print "Error!: " . $err->getMessage() . "<br/>";
     die();

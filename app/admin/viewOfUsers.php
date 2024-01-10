@@ -95,6 +95,7 @@ while ($row = $stmt->fetch())
             <th>IP адрес</th>          
             $builder
         </table>
+        <a href="viewOfOrders.php">Список заказов</a>
         END;
     }?>
 </body>

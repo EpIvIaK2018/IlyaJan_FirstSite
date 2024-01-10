@@ -4,7 +4,6 @@ class User{
     private string $name;
     private string $password;
     private string $email;
-
     private string $ip;
 
     /**

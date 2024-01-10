@@ -13,12 +13,6 @@ if(!empty($_SESSION['login'])){
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>Главная</title>
     <link rel="stylesheet" type="text/css" href="/app/style.css">
-    <script>
-        if (typeof localStorage === 'undefined') {
-            alert("localStorage не работает!");
-        }
-    </script>
-
     <style>
         .global{
             background: url(../resources/Back.png);
@@ -31,6 +25,11 @@ if(!empty($_SESSION['login'])){
             width: 100%;
         }
     </style>
+    <script>
+        if (typeof localStorage === 'undefined') {
+            alert("localStorage не работает!");
+        }
+    </script>
 </head>
 <body>
 <div class="global">
@@ -50,6 +49,25 @@ if(!empty($_SESSION['login'])){
         </div>
 
     </div>
+    <script>
+        let temp = '<?php echo $log?>';
+        var el = document.getElementById('line_blocRight');
+        if(temp.length > 15){
+            el.style.fontSize = '1.35vw';
+            el.style.top = '25%';
+            el.style.color = 'red';
+            el.style.fontWeight = 'bolder';
+        }else if(temp.length > 10){
+            el.style.fontSize = '1.55vw';
+            el.style.fontWeight = 'bolder';
+            el.style.top = '28%';
+            el.style.color = 'green';
+        }else{
+            el.style.fontSize = '1.8vw';
+            el.style.color = 'blue';
+            el.style.top = '20%';
+        }
+    </script>
 <?php
 //&#709;
 ?>

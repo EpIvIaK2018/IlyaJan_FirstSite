@@ -130,14 +130,11 @@ p{
     height: 3vw;
 }
 /*Справа где Логин*/
-#line_blocRight {
-    top: 16%;
+#line_blocRight{
     position: relative;
     width: calc(15vw);
     text-align: center;
-    font-size: 2.1vw;
     white-space: nowrap;
-   
 }
 #line_blocRight a{
 

@@ -17,7 +17,7 @@ if(!empty($_SESSION['user_id'])){
         $stmt->bindParam(1, $checkingLog);
         $stmt->execute();
         $output = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        file_put_contents("LOG.txt", print_r($output, true));
+
         if ($output) {
             $hashed_password = $output[0]["password"];
             // Проверяем, не нужно ли использовать более новый алгоритм
