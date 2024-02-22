@@ -5,6 +5,7 @@
   "require": {
     "ext-curl": "*",
     "ext-bcmath": "*",
-    "ext-simplexml": "*"
+    "ext-simplexml": "*",
+    "ext-pdo": "*"
   }
 }

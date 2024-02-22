@@ -2,7 +2,7 @@
 namespace App;
 final class Connect{
     private static array $dbInfo;
-    private static mixed $host, $dbname, $username, $password;
+    private static string $host, $dbname, $username, $password;
     private static ?\PDO $link = null;
 
     private static ?self $instance = null;
@@ -36,7 +36,6 @@ final class Connect{
     {
         self::$dbInfo = require_once 'dbinfo.php';
         [self::$host, self::$dbname, self::$username,self::$password] = self::$dbInfo;
-        //print_r(self::$password);
         self::$link = new \PDO('mysql:host=' . self::$host . ';dbname=' . self::$dbname, self::$username, self::$password);
     }
 

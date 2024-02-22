@@ -18,8 +18,6 @@ echo<<<VIEW
             <table style="border: 3px solid black">
 VIEW;
 foreach ($data as $arr){
-    //var_export($arr);
-    //'goods' => '[{"product":"red","count":200},{"product":"limon","count":300},{"product":"last","count":300},{"product":"green","count":300}]'
     echo "<tr>";
     foreach ($arr as $k=>$v){
         if($k==="goods"){

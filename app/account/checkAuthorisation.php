@@ -9,7 +9,5 @@ if(!isset($_SESSION['oldTime'])){
         $_SESSION = array();
         echo "<script>localStorage.clear()</script>";
         session_unset();
-    }//else{
-        //$_SESSION['oldTime'] = $_SESSION['newTime'];
-    //}
+    }
 }

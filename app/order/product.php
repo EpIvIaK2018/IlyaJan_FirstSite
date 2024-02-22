@@ -9,7 +9,7 @@ abstract class product
     public string $name = '';
 
 
-    public function getSum(): float|int
+    public function getSum(): float
     {
         return ($this->weight / 50) * $this->priceFor50;
     }

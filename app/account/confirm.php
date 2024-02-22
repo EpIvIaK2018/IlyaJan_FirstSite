@@ -3,6 +3,20 @@ use App\Connect;
 ini_set('display_errors', 1);
 ini_set('error_reporting', -1);
 require "../Connect.php";
+function sendMail(string $mail, string $message): void{
+    $message = wordwrap($message, 70, "\r\n");
+    echo " " . $mail;
+    $mail = trim($mail);
+    $headers = array(
+        'From' => 'webmaster@example.com',
+        'Reply-To' => 'webmaster@example.com',
+        'X-Mailer' => 'PHP/' . phpversion()
+    );
+    if(mail($mail, "Вы зарегистрированы!", "$message", $headers)){
+        echo " Почта отправлена!";
+    }
+}
+
 if(!empty($_POST)){
     $log = $_POST['loginforReg'];
     $pass = password_hash($_POST['passwordforReg'], PASSWORD_DEFAULT );
@@ -33,6 +47,8 @@ if(!empty($_POST)){
     VALUES ('$log', '$pass', '$ava', '$email', '$publicName', '$ip', 10000)";
         $stmt = Connect::getInstance()->getLink()->prepare($sql);
         $stmt->execute();
+        $message = "Поздравляем, Вы зарегистрированы! Добро пожаловать!" . "<a href='{$_SERVER['DOCUMENT_ROOT']}" . "/app/getConnect.php" . "'>На Главную</a>";
+        sendMail($email, $message);
         header('Refresh: 2; URL=../account/login.php');
     }
 }

@@ -3,7 +3,10 @@ session_start();
 require $_SERVER['DOCUMENT_ROOT'] . "/app/Connect.php";
 ini_set('display_errors', 1);
 ini_set('error_reporting', 1);
-
+/*
+ * Если у нас во временной корзине был товар, а затем ав авторизовались, то данный код
+ * перенесёт из времянки товары в корзину пользователя
+ * */
 if (!empty($_POST['data']) && empty($_SESSION['user_id'])) {
     file_put_contents('log2.txt', print_r($_SESSION, true) . PHP_EOL);
 }else{
@@ -12,7 +15,7 @@ if (!empty($_POST['data']) && empty($_SESSION['user_id'])) {
     $userId = $_SESSION['user_id'];
     $connect = App\Connect::getInstance();
     $list =  json_decode($current, true);
-    // Он проходится не по всем 4 сортам. А лишь по тому (тем) сорту(ам) который в localStorage фигурирует
+
     foreach ($list as $key => $val){
         $stmt = $connect::getLink()->prepare("SELECT * FROM cart_items WHERE (`id_Customer` = :id_Customer AND `product` = :product)");
         $stmt->bindValue(':id_Customer', $userId, PDO::PARAM_INT);
@@ -21,7 +24,6 @@ if (!empty($_POST['data']) && empty($_SESSION['user_id'])) {
         $result = $stmt->fetchAll();
         if($result){
             foreach ($result as $currentValue) {
-                    //Ясно Из-за того что я не count извлекаю, а ВСЁ
                 if($currentValue[3] > 0) {
                     $newVal = $currentValue[3] + $val;
                 }else {

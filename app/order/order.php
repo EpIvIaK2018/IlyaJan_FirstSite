@@ -23,15 +23,6 @@ if(isset($_GET['variant']) && isset($_GET['title'])){
 } else{
     header("Location: ../../public/index.php");
 }
-if (isset($_COOKIE['value'])){
-    /*
-    $val = $_COOKIE['value'];
-    productsSummary::addProduct(new greenTea($val));
-    var_dump(productsSummary::getSumALl());
-    unset($_COOKIE['value']);
-    */
-    //echo "<script>document.cookie = value=; path='', expires=-1;</script>";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -238,11 +229,7 @@ if (isset($_COOKIE['value'])){
                     break;
             }
         ?>
-
-
     </style>
-    <script>
-    </script>
 </head>
 <body>
 <div class="main">
@@ -250,39 +237,138 @@ if (isset($_COOKIE['value'])){
         <div class="frame">
             <h1><?=$_GET['title']?></h1>
         </div>
-        <div class="pirista">
+        <div class="pirista" style="top: 3.5vh;">
             <li><a href="google.com"><span class="textIntoHead">piristää</span></a></li>
             <li><a href="google.com"><span class="textIntoHead">eväste</span></a></li>
             <li><a href="google.com"><span class="textIntoHead">toinen</span></a></li>
         </div>
 
 
-        <div style="position: absolute; right: 1vw; top: 2vh">
+        <div style="position: relative; right: 1.8vw; bottom: -0.8vh">
             <a href="payment.php">
-                <img src="../../resources/symka.png" alt="HTML tutorial" style="width:3vw;height: 5vh;">
+                <img src="../../resources/symka.png" alt="HTML tutorial" style="width:4vw; height: 4vw;";
             </a>
-            <?php
-            if(isset($_SESSION['cart'])){
-                if($_SESSION['cart'] > 0) echo "<div id='mark'></div>";
-            }
-            ?>
         </div>
     </div>
         <div class="order">
             <div><span>Pakkaus</span></div>
-            <div><button><a href="http://localhost:63342/IlyaJan/app/order/toCart.php?id=50&variant=<?= $_GET['variant'] ?? ""?>&title=<?=$_GET['title'] ?? ""?>">50gr.</a></button></div>
-            <div><button><a href="http://localhost:63342/IlyaJan/app/order/toCart.php?id=100&variant=<?= $_GET['variant'] ?? ""?>&title=<?=$_GET['title'] ?? ""?>">100gr.&nbsp;</a></button></div>
-            <div><button><a href="http://localhost:63342/IlyaJan/app/order/toCart.php?id=150&variant=<?= $_GET['variant'] ?? ""?>&title=<?=$_GET['title'] ?? ""?>">150g.</a></button></div>
+            <div><a id="but_1" href="#">50gr.</a></div>
+            <div><a id="but_2" href="#">100gr.</a></div>
+            <div><a id="but_3" href="#">150gr.</a></div>
         </div>
-
         <div class="subtitle">
             <p>
                 Ainutlaatuinen elävä orgaaninen tee, jolla on vahva käyminen aurinkoisten i säntien puhtaista<br />
                 istutuksista. Uskomattoman maukasta ja terveellistä. Koottu ja valmistettu käsin tänä keväänä.
             </p>
         </div>
-    <?php
-    require_once '../../public/footer.html';
-    ?>
+</div>
+    <script>
+        let variant = '<?= $_GET['variant']?>';
+        let title   = '<?= $_GET['title']?>';
+
+         async function showValue(elem, id ){
+             let show = document.createElement("div");
+             show.style.cssText = "position:fixed; color: violet; font-family: Gill Sans Extrabold";
+             let parent = document.querySelector('.order');
+             parent.appendChild(show);
+             show.textContent = id;
+             let coords = elem.getBoundingClientRect();
+             show.style.left = coords.right + "px";
+             show.style.top = coords.top + "px";
+             show.style.opacity = '1';
+             var op = 1;
+             var x = coords.right;
+             var val = 1;
+             // проверяет
+             setTimeout(function (){
+                 if (op < -1) return;
+                 show.style.opacity = op;
+                 show.style.left = x + "px";
+                 x += val;
+                 val += 1;
+                 op-=0.05;
+                 setTimeout (arguments.callee, 50);
+             }, 10);
+             if(op < 0){
+                 parent.removeChild(show);
+             }
+         }
+
+        function addValue(id){
+            const data = 'variant=' + variant + '&title=' + title + '&id=' + id;
+            const xhr = new XMLHttpRequest();
+            const url = 'toCart.php';
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(data);
+                }
+            };
+            xhr.send(data);
+        }
+        let thereIsLogin = '<?= $_SESSION['user_id'] ?? ""?>';
+        document.getElementById("but_1").addEventListener("click", function(){
+            let id = '50';
+            let newData = 0;
+            if(thereIsLogin === ""){
+                if(localStorage.getItem(variant) !== null){
+                    const data = localStorage.getItem(variant);
+                    newData = Number(data) + Number(id);
+                    localStorage.setItem(variant, String(newData));
+
+                }else{
+                    localStorage.setItem(variant, id);
+                }
+                showValue(document.getElementById("but_1"), newData)
+            }else{
+                addValue(id);
+                showValue(document.getElementById("but_1"), "+" + id);
+            }
+        });
+
+        document.getElementById("but_2").addEventListener("click", function(){
+            let id = '100';
+            let newData = 0;
+            if(thereIsLogin === ""){
+                if(localStorage.getItem(variant) !== null){
+                    const data = localStorage.getItem(variant);
+                    newData = Number(data) + Number(id);
+                    localStorage.setItem(variant, String(newData));
+
+                }else{
+                    localStorage.setItem(variant, id);
+                }
+                showValue(document.getElementById("but_2"), newData)
+            }else{
+                addValue(id);
+                showValue(document.getElementById("but_2"), "+" + id);
+            }
+        });
+
+        document.getElementById("but_3").addEventListener("click", function(){
+            let id = '150';
+            let newData = 0;
+            if(thereIsLogin === ""){
+                if(localStorage.getItem(variant) !== null){
+                    const data = localStorage.getItem(variant);
+                    newData = Number(data) + Number(id);
+                    localStorage.setItem(variant, String(newData));
+
+                }else{
+                    localStorage.setItem(variant, id);
+                }
+                showValue(document.getElementById("but_3"), newData)
+            }else{
+                addValue(id);
+                showValue(document.getElementById("but_3"), "+" + id);
+            }
+        });
+    </script>
 </body>
+<?php
+require_once '../../public/footer.html';
+?>
 </html>
+

@@ -4,8 +4,6 @@ ini_set('display_errors', 1);
 ini_set('error_reporting', -1);
 session_start();
 require $_SERVER['DOCUMENT_ROOT'] . "/app/Connect.php";
-$temp = array();
-$temp[] = $_POST;
 $id = $_SESSION['user_id'];
 $name = $_POST['name'];
 $lastName = $_POST['lastname'];
