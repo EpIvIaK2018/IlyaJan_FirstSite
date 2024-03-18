@@ -6,7 +6,7 @@
       <paths name="IlyaJan">
         <serverdata>
           <mappings>
-            <mapping deploy="/domains/f0854637.xsph.ru/public_html/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/domains/ilyajan.ru/public_html/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

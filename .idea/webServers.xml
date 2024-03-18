@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="e1fbf482-81a3-4f5c-b7c2-ecbd84df90be" name="IlyaJan" url="http://f0854637.xsph.ru/">
-        <fileTransfer host="f0854637.xsph.ru" port="21">
+      <webServer id="e1fbf482-81a3-4f5c-b7c2-ecbd84df90be" name="IlyaJan" url="http://ilyayan.ru.xsph.ru/">
+        <fileTransfer host="141.8.192.151" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
